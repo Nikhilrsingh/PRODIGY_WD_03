@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tic‑Tac‑Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="brand"><span style="color:var(--accent)">Tic</span>-Tac-<span
+                    style="color:var(--accent)">Toe</span></div>
+            <div class="controls">
+                <div class="mute-toggle">
+                    <button class="btn small" id="muteBtn">🔊</button>
+                </div>
+                <button class="btn small" id="resetScores">Reset Scores</button>
+                <button class="btn small" id="openModalBtn">New Game</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top-row">
+                <div class="meta">
+                    <div class="score">
+                        <h4 id="xNameTitle">Player X</h4>
+                        <p id="xScore">0</p>
+                    </div>
+                    <div class="score">
+                        <h4 id="oNameTitle">Player O</h4>
+                        <p id="oScore">0</p>
+                    </div>
+                    <div class="score">
+                        <h4 class="muted">Draws</h4>
+                        <p id="drawScore">0</p>
+                    </div>
+                </div>
+                <div style="flex:1"></div>
+            </div>
+            <div class="board-wrap">
+                <div class="board" id="board" role="grid" aria-label="Tic Tac Toe Board">
+                </div>
+                <div class="options">
+                    <div class="row">
+                        <label class="small-muted">Mode:</label>
+                        <div id="modeDisplay" class="small-muted">—</div>
+                    </div>
+                    <div class="row">
+                        <label class="small-muted">Difficulty:</label>
+                        <div id="difficultyDisplay" class="small-muted">—</div>
+                    </div>
+                    <div style="height:12px"></div>
+                    <div class="moves" id="movesLog">
+                        <p class="muted">Move history will appear here.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="min-width:240px">
+                <div class="status" id="statusText">Press "New Game" to start</div>
+                <div class="footer-actions">
+                    <button class="btn" id="resetBtn">Reset Game</button>
+                    <button class="btn" id="undoBtn">Undo Move</button>
+                </div>
+            </div>
+            <div id="modal" class="modal-backdrop" style="display:flex">
+                <div class="modal">
+                    <h3>Start New Game</h3>
+                    <div class="grid-2">
+                        <div>
+                            <label>Player X name</label>
+                            <input type="text" id="xNameInput" placeholder="Player X" value="Player X" />
+                        </div>
+                        <div>
+                            <label>Player O name</label>
+                            <input type="text" id="oNameInput" placeholder="Player O" value="Player O" />
+                        </div>
+                    </div>
+                    <div class="row radio-row">
+                        <label>Mode:</label>
+                        <label><input type="radio" name="mode" value="pvp" checked /> Two Player</label>
+                        <label><input type="radio" name="mode" value="ai" /> Vs Computer</label>
+                    </div>
+                    <div class="row" style="margin-top:8px">
+                        <label>Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="btn" id="startGameBtn">Start Game</button>
+    </div>
+    <audio id="moveSound"></audio>
+    <audio id="winSound"></audio>
+    <audio id="drawSound"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
